@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrleansTurnbasedExternal", "OrleansTurnbasedExternal\OrleansTurnbasedExternal.csproj", "{7400C5F8-0175-4208-9218-3804CE043E66}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7400C5F8-0175-4208-9218-3804CE043E66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7400C5F8-0175-4208-9218-3804CE043E66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7400C5F8-0175-4208-9218-3804CE043E66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7400C5F8-0175-4208-9218-3804CE043E66}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2639C07B-DA1F-4ECF-A379-87FF7CEA7916}
+	EndGlobalSection
+EndGlobal
