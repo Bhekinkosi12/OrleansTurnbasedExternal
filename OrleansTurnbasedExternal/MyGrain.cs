@@ -53,7 +53,6 @@ namespace OrleansTurnbasedExternal
             worker.Start(
                 self,
                 activationId,
-                TaskScheduler.Current,
                 fileData
             );
         }
