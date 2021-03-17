@@ -9,7 +9,6 @@ namespace OrleansTurnbasedExternal
         private readonly int streamId;
         private IMyGrain grain;
         private Guid activationId;
-        private TaskScheduler orleansTaskScheduler;
         private bool isStarted;
         private bool isDisposing;
         
@@ -21,7 +20,6 @@ namespace OrleansTurnbasedExternal
         public void Start(
             IMyGrain grain,
             Guid activationId,
-            TaskScheduler orleansTaskScheduler,
             int fileData)
         {
             if (isDisposing || isStarted)
@@ -33,7 +31,6 @@ namespace OrleansTurnbasedExternal
 
             this.grain = grain;
             this.activationId = activationId;
-            this.orleansTaskScheduler = orleansTaskScheduler;
 
             Task.Run(() => PullLoopAsync(fileData));
         }
@@ -54,10 +51,7 @@ namespace OrleansTurnbasedExternal
 
         private async Task UpdateStreamDataOnOrleansSchedulerAsync(int payload)
         {
-            var stayActive = await Task.Factory.StartNew(() =>
-            {
-                return grain.UpdateMetricsDataAsync(streamId, payload, activationId);
-            }, CancellationToken.None, TaskCreationOptions.None, scheduler: orleansTaskScheduler).Unwrap();
+            var stayActive = await grain.UpdateMetricsDataAsync(streamId, payload, activationId);
 
             if (!stayActive && !isDisposing)
             {

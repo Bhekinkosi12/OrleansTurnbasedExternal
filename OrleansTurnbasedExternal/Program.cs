@@ -12,7 +12,7 @@ namespace OrleansTurnbasedExternal
     {
         static async Task Main(string[] args)
         {
-            var host = Host.CreateDefaultBuilder(args)
+            using var host = Host.CreateDefaultBuilder(args)
                 .UseOrleans(siloBuilder =>
                 {
                     siloBuilder
@@ -36,7 +36,7 @@ namespace OrleansTurnbasedExternal
 
             await client.GetGrain<IMyGrain>(Guid.Empty).StartWorkers(10);
 
-            await Task.Delay(int.MaxValue);
+            await host.WaitForShutdownAsync();
         }
     }
 }
