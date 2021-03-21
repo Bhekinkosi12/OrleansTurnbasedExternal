@@ -33,6 +33,7 @@ namespace OrleansTurnbasedExternal
             if (workers is null)
             {
                 workers = new Dictionary<int, MyWorker>();
+                
                 for (int i = 0; i < count; i++)
                 {
                     ActivateWorker(i, 0);
@@ -59,7 +60,7 @@ namespace OrleansTurnbasedExternal
 
         public async Task<bool> UpdateMetricsDataAsync(int streamId, int payload, Guid activationId)
         {
-            activeTurns++;
+            activeTurns += 1;
 
             await Task.Delay(random.Next(0, 1000));
 
